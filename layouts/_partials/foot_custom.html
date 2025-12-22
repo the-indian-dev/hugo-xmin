@@ -14,5 +14,25 @@
 	style="height: 5vh;">
 	</a>
 </div>
-<a href="/index.xml" style="font-size: 15px">RSS Feed</a>
-
+<div style="font-size:15px;">
+<p class="gitinfo">
+Running on
+{{ with .GitInfo }}
+  {{ .AbbreviatedHash }}
+{{ end }}
+<span>
+| Last Updated:
+{{ with .GitInfo }}
+  {{ .AuthorDate.Format "2006-01-02" }}
+{{ end }}
+: <i>
+“
+{{ with .GitInfo }}
+  {{ .Subject }}
+{{ end }}
+”
+</i>
+</span>
+</p>
+<a href="/index.xml">RSS Feed</a>
+</div>
