@@ -24,11 +24,12 @@
   </head>
 
   <body>
-    <nav>
+    <nav style="display: flex;">
+    <h1 class="hide-on-phone">🪷 theindiandev's shenanigans</h1>
     <ul class="menu">
       {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+      <li style="padding-right: 0.4vw; padding-top: 2.5vh;"><a href="{{ .URL | relURL }}"><u>{{ .Name }}</u></a></li>
       {{ end }}
     </ul>
-    <hr/>
     </nav>
+    <hr/>
