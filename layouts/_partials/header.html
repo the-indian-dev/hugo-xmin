@@ -25,7 +25,12 @@
 
   <body>
     <nav style="display: flex;">
-    <h1 class="hide-on-phone">🪷 theindiandev's shenanigans</h1>
+    <h1 class="hide-on-phone"><img src="/assets/img/swastik.svg" alt="Hindu swastika, sacred symbol" height="50px"
+style="vertical-align: middle;"
+title="The swastika is an auspicious symbol in Hinduism and it means 'conducive to well-being'"
+loading="eager">
+<i>theindiandev's shenanigans</i></h1>
+
     <ul class="menu">
       {{ range .Site.Menus.main }}
       <li style="padding-right: 0.4vw; padding-top: 2.5vh;"><a href="{{ .URL | relURL }}"><u>{{ .Name }}</u></a></li>
