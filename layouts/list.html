@@ -6,15 +6,31 @@
 
 {{ .Content }}
 
+{{ if not .IsHome }}
 <ul>
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
   {{ range (where $pages "Section" "!=" "") }}
   <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <span class="date">{{ .Date.Format "02/01/2006" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}
 </ul>
+{{ end }}
+
+{{ if .IsHome }}
+<ul>
+  {{ $pages := .Pages }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+  {{ range first 5 (sort (where $pages "Section" "!=" "") "Date" "desc") }}
+  <li>
+    <span class="date">{{ .Date.Format "02/01/2006" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+  </li>
+  {{ end }}
+  <a href="/posts/">Show more...</a>
+</ul>
+{{ end }}
 
 {{ partial "footer.html" . }}
